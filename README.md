@@ -11,14 +11,31 @@ In control node Ansible requires specific Python libraries and their system depe
 
 The Dockerfile declares an entrypoint enabling the running container to function as a self-contained executable.
 
+## Instructions
+
+- Pull the image using
+```
+docker pull adisakshya/ansible:latest
+```
+
+- Run ansible-playbook inside docker container using command 
+```
+docker run -it --rm -v "path/to/playbooks/directory:/ansible/playbooks" adisakshya/ansible:latest playbook-name.yml
+```
+
 ## Development
 
-- Build the docker image using command
+- Clone the repository using command
+```
+git clone https://github.com/adisakshya/ansible.git
+```
+
+- Build the docker image using command (from root of repository)
 ```
 docker build -t yourname/imagename:tag .
 ```
 
-- Now you can run ansible-playbook inside docker container using command 
+- Now you can run ansible-playbook inside docker container using command (from root of repository)
 ```
-docker run -it --rm -v "/$(pwd)/playbooks:/ansible/playbooks" yourname/imagename:tag 
+docker run -it --rm -v "/$(pwd)/playbooks:/ansible/playbooks" yourname/imagename:tag playbook-name.yml
 ```
