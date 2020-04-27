@@ -32,5 +32,5 @@ ENV ANSIBLE_GATHERING=smart \
 # Work Directory
 WORKDIR /ansible/playbooks
 
-# Ansible Playbook Entrypoint
-ENTRYPOINT ["ansible-playbook"]
+# Ansible Entrypoint
+ENTRYPOINT ["ansible"]
