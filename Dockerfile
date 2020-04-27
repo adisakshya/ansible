@@ -9,8 +9,6 @@ LABEL maintainer "Adisakshya Chauhan <adisakshya98@gmail.com>"
 # Install Python, pip, Ansible and OpenSSH-Client
 RUN apt-get update
 RUN apt-get install -y \
-    python \
-    python-pip \
     ansible \
     openssh-client
 
