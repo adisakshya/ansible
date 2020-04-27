@@ -6,9 +6,13 @@ FROM ubuntu:latest
 # Maintainer
 LABEL maintainer "Adisakshya Chauhan <adisakshya98@gmail.com>"
 
-# Install Ansible
+# Install Python, pip, Ansible and OpenSSH-Client
 RUN apt-get update
-RUN apt-get install -y ansible
+RUN apt-get install -y \
+    python \
+    python-pip \
+    ansible \
+    openssh-client
 
 # Create directories and set ansible hosts
 RUN mkdir -p /etc/ansible/ /ansible && \
@@ -30,7 +34,4 @@ ENV ANSIBLE_GATHERING=smart \
     EDITOR=nano
 
 # Work Directory
-WORKDIR /ansible/playbooks
-
-# Ansible Entrypoint
-ENTRYPOINT ["ansible"]
+WORKDIR /ansible
